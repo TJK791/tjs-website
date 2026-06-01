@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Estimate — TJ's Property Management | Contact Us</title>
+  <meta name="description" content="Get a free estimate from TJ's Property Management. Call, text, or email us — serving Victor, NY and all of Upstate New York. 315-332-0905 or 585-353-6926.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--green-pale);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cc-icon {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .cc-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .cc-body .cc-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+
+    .cc-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .contact-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* What to expect */
+    .expect-box {
+      background: var(--green-pale);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      margin-top: 16px;
+    }
+
+    .expect-box h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    .expect-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .expect-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green-dark);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .expect-step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-top: 4px;
+    }
+
+    /* Right col — info */
+    .info-col {}
+
+    .info-highlight {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 36px 32px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .info-highlight h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .info-highlight p {
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .info-highlight .hl-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hl-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hl-check {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .hours-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 26px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--green-pale);
+      margin-bottom: 24px;
+    }
+
+    .hours-box h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--green-pale);
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:last-child { font-weight: 600; color: var(--text-main); }
+
+    .social-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 26px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--green-pale);
+    }
+
+    .social-box h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--off-white);
+      border-radius: var(--radius);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--green-pale);
+      color: var(--green-dark);
+    }
+
+    .social-link-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: #1877F2;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar"><!-- injected --></nav>
+
+<header class="page-header">
+  <h1>Get a Free Estimate</h1>
+  <p>Reach out any way you prefer — we'll come take a look and give you an honest quote.</p>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Methods -->
+      <div data-reveal>
+        <div class="section-label">Reach Out</div>
+        <h2 class="section-title" style="font-size:2rem;margin-bottom:8px;">How to Contact Us</h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:28px;">
+          No contact form here — just call, text, or shoot us an email. We respond fast and keep things simple.
+        </p>
+
+        <div class="contact-cards-col">
+          <a href="tel:3153320905" class="contact-card">
+            <div class="cc-icon">📞</div>
+            <div class="cc-body">
+              <h3>Call or Text</h3>
+              <div class="cc-value">315-332-0905</div>
+              <p>Our primary number — call or text any time. We'll get back to you quickly.</p>
+            </div>
+          </a>
+
+          <a href="tel:5853536926" class="contact-card">
+            <div class="cc-icon">📱</div>
+            <div class="cc-body">
+              <h3>Call or Text</h3>
+              <div class="cc-value">585-353-6926</div>
+              <p>Second number — reach either of us this way too.</p>
+            </div>
+          </a>
+
+          <a href="mailto:tjs.management@gmail.com" class="contact-card">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-body">
+              <h3>Email Us</h3>
+              <div class="cc-value">tjs.management@gmail.com</div>
+              <p>Prefer email? Send us a message with your address and what you're looking for.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="expect-box">
+          <h4>🌿 What Happens After You Reach Out</h4>
+          <div class="expect-step">
+            <div class="expect-num">1</div>
+            <p>We'll respond quickly to set up a time to come take a look at your property.</p>
+          </div>
+          <div class="expect-step">
+            <div class="expect-num">2</div>
+            <p>We walk the property with you, understand what you're looking for, and answer any questions.</p>
+          </div>
+          <div class="expect-step">
+            <div class="expect-num">3</div>
+            <p>We give you a clear, honest estimate. No pressure, no obligation — just a straight number.</p>
+          </div>
+          <div class="expect-step" style="margin-bottom:0;">
+            <div class="expect-num">4</div>
+            <p>If you're happy with the quote, we'll schedule the job and get to work!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="info-col" data-reveal>
+        <div class="info-highlight">
+          <h3>Free Estimates — Always</h3>
+          <p>We believe in being upfront. Every estimate is completely free with no obligation. We'll walk your property, talk through your vision, and give you a realistic, honest number.</p>
+          <div class="hl-list">
+            <div class="hl-item"><div class="hl-check">✓</div> No hidden fees or surprise charges</div>
+            <div class="hl-item"><div class="hl-check">✓</div> Budget-friendly pricing on every job</div>
+            <div class="hl-item"><div class="hl-check">✓</div> We won't leave until you're satisfied</div>
+            <div class="hl-item"><div class="hl-check">✓</div> Serving Victor, NY &amp; all of Upstate NY</div>
+          </div>
+        </div>
+
+        <div class="hours-box">
+          <h4>📅 Availability</h4>
+          <div class="hours-row"><span>Monday – Friday</span><span>Available</span></div>
+          <div class="hours-row"><span>Saturday</span><span>Available</span></div>
+          <div class="hours-row"><span>Sunday</span><span>By Request</span></div>
+          <div class="hours-row"><span>Response Time</span><span>Same Day</span></div>
+        </div>
+
+        <div class="social-box">
+          <h4>Follow Us</h4>
+          <a href="https://www.facebook.com/profile.php?id=61588699485808" target="_blank" rel="noopener" class="social-link">
+            <div class="social-link-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+            TJ's Property Management on Facebook
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Don't Wait — Your Yard is Ready</h2>
+    <p>Whether it's a full patio build or a quick mulch refresh, reach out today and let's make it happen.</p>
+    <div class="btn-wrap">
+      <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
+      <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
+      <a href="mailto:tjs.management@gmail.com" class="btn" style="background:rgba(255,255,255,0.15);color:var(--white);border:1px solid rgba(255,255,255,0.3);">✉️ Email Us</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><!-- injected --></footer>
+<a href="tel:3153320905" class="sticky-call">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Free Estimate
+</a>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
