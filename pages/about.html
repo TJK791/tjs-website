@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — TJ's Property Management | Victor, NY</title>
+  <meta name="description" content="Learn about TJ's Property Management — two hardworking, college-bound students from Victor, NY with real landscaping experience and a passion for doing the job right.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .story-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #d0e8d0, #a0c8a0);
+      position: relative;
+    }
+
+    .story-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .story-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      background: linear-gradient(135deg, var(--green-pale) 0%, #c0dcc0 100%);
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .story-placeholder span { font-size: 3rem; }
+
+    .story-accent {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 120px; height: 120px;
+      border-radius: var(--radius-lg);
+      background: var(--green-bright);
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    .about-quote {
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .about-quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px; left: 20px;
+      font-family: var(--font-display);
+      font-size: 12rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+    }
+
+    .about-quote p {
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-quote cite {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--green-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .mission-card {
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--green-pale);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .mission-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mission-icon { font-size: 2.2rem; margin-bottom: 14px; }
+
+    .mission-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .mission-card p {
+      font-size: 0.91rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .story-section { grid-template-columns: 1fr; gap: 36px; }
+      .mission-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .mission-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar"><!-- injected --></nav>
+
+<header class="page-header">
+  <h1>About TJ's Property Management</h1>
+  <p>Two guys from Victor, NY — with big work ethic and even bigger results.</p>
+</header>
+
+<!-- OUR STORY -->
+<section class="section">
+  <div class="container">
+    <div class="story-section" data-reveal>
+      <div class="story-img">
+        <!-- Replace with your team photo: <img src="images/team.jpg" alt="The TJ's team"> -->
+        <div class="story-placeholder">
+          <span>👋</span>
+          <div>Team photo goes here</div>
+        </div>
+        <div class="story-accent"></div>
+      </div>
+      <div>
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Started Right Here in Victor, NY</h2>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:16px;font-size:0.97rem;">
+          TJ's Property Management was founded by two hardworking, college-bound students who grew up in the Victor, NY area. With real landscaping experience and a drive to do right by every customer, we started this business to bring quality outdoor work to our community at prices that make sense.
+        </p>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:24px;font-size:0.97rem;">
+          We're not a faceless crew — we're your neighbors. We show up personally to every job, treat every yard like it's our own, and won't leave until you're happy with the results. Simple as that.
+        </p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Real experience with landscaping and hardscaping projects</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Locally based — we know Upstate NY properties and seasons</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>We stay until you're 100% satisfied with the results</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Budget-friendly pricing with no hidden fees</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-quote" data-reveal>
+      <p>"We treat every yard like it's our own. We won't leave until you're happy with the results — that's our promise on every single job."</p>
+      <cite>— TJ's Property Management</cite>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-label">The Team</div>
+      <h2 class="section-title">Who's Behind the Work</h2>
+      <p class="section-sub">Two motivated, detail-oriented guys who care about quality and take every project seriously.</p>
+    </div>
+    <div class="team-grid" data-reveal>
+      <div class="team-card">
+        <!-- Replace with real photo: <img> inside team-avatar -->
+        <div class="team-avatar">T</div>
+        <h3>TJ</h3>
+        <div class="role">Co-Founder</div>
+        <p>Handles hardscaping projects and patio builds. Brings patience, precision, and a real eye for design to every outdoor transformation.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">J</div>
+        <h3>Co-Founder</h3>
+        <div class="role">Co-Founder</div>
+        <p>Specializes in planting, mulching, and bed work. Takes pride in making yards look clean, healthy, and professionally finished every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-label">What We Stand For</div>
+      <h2 class="section-title">Our Core Values</h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card" data-reveal>
+        <div class="mission-icon">🎯</div>
+        <h3>Quality First</h3>
+        <p>Every detail matters. From the first cut to the final cleanup, we hold ourselves to a standard that we'd be proud to show anyone.</p>
+      </div>
+      <div class="mission-card" data-reveal>
+        <div class="mission-icon">💬</div>
+        <h3>Honest Communication</h3>
+        <p>We give you a real estimate, a real timeline, and real updates. No runarounds, no vague answers — just straight talk and follow-through.</p>
+      </div>
+      <div class="mission-card" data-reveal>
+        <div class="mission-icon">💵</div>
+        <h3>Fair Pricing</h3>
+        <p>Professional landscaping results don't have to cost a fortune. We keep our pricing transparent and accessible for every homeowner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="feature-row" data-reveal>
+      <div>
+        <div class="section-label">Where We Work</div>
+        <h2 class="section-title">Proudly Serving Upstate New York</h2>
+        <p style="color:var(--text-muted);line-height:1.8;font-size:0.97rem;margin-bottom:24px;">
+          Founded right in Victor, NY, we service properties throughout the Finger Lakes region and the greater Rochester area. Whether you're in town or a bit off the beaten path, reach out — we'd love to help.
+        </p>
+        <a href="contact.html" class="btn btn-primary">Get a Free Estimate</a>
+      </div>
+      <div class="feature-img-wrap">
+        <div class="feature-img-placeholder">
+          <span style="font-size:3rem;">📍</span>
+          <p>Victor & Upstate NY</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Let's Work on Your Property</h2>
+    <p>Ready to get started? Reach out for a free, no-obligation estimate. We'll walk your property, talk through your goals, and give you an honest quote.</p>
+    <div class="btn-wrap">
+      <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
+      <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><!-- injected --></footer>
+<a href="tel:3153320905" class="sticky-call">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Free Estimate
+</a>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
