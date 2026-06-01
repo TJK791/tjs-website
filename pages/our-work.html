@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work — TJ's Property Management | Project Gallery</title>
+  <meta name="description" content="Browse TJ's Property Management project gallery — patios, mulching, planting, edging, and hardscaping work in Victor, NY and Upstate New York.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--radius-lg);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+      line-height: 1;
+    }
+
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+    /* GALLERY ITEM HOVER OVERLAY */
+    .gallery-item {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,74,26,0.0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+      border-radius: var(--radius);
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      background: rgba(26,74,26,0.5);
+    }
+
+    .gallery-item-overlay svg {
+      color: white;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .gallery-item:hover .gallery-item-overlay svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* PLACEHOLDER GRID ITEMS */
+    .placeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .ph-item {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      border: 2px dashed var(--gray-mid);
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .ph-item:hover { border-color: var(--green-bright); background: var(--green-pale); }
+    .ph-item span { font-size: 2.2rem; }
+
+    /* HOW TO ADD PHOTOS */
+    .add-photos-guide {
+      background: var(--green-pale);
+      border: 2px solid var(--green-bright);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+    }
+
+    .add-photos-guide h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .add-photos-guide p {
+      font-size: 0.91rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .add-photos-guide code {
+      background: rgba(26,74,26,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88em;
+      color: var(--green-dark);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar"><!-- injected --></nav>
+
+<header class="page-header">
+  <h1>Our Work</h1>
+  <p>Browse completed projects by service — real results from real Upstate NY properties.</p>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Developer note -->
+    <div class="add-photos-guide" data-reveal>
+      <h3>📸 Adding Your Photos</h3>
+      <p>Place your photo files inside the <code>images/work/</code> folder, then replace the placeholder <code>&lt;div&gt;</code> elements below with <code>&lt;img src="../images/work/yourphoto.jpg" alt="Description"&gt;</code>. Each gallery item already has the lightbox click handler set up — just swap in the real images.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-wrap" data-reveal>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="all">All Projects</button>
+        <button class="tab-btn" data-tab="hardscaping">Hardscaping</button>
+        <button class="tab-btn" data-tab="mulching">Mulching</button>
+        <button class="tab-btn" data-tab="landscaping">Landscaping</button>
+        <button class="tab-btn" data-tab="trimming">Trimming & Edging</button>
+      </div>
+    </div>
+
+    <!-- ALL TAB -->
+    <div class="tab-panel active" id="tab-all">
+      <div class="placeholder-grid">
+        <div class="ph-item"><span>🪨</span>Patio Project</div>
+        <div class="ph-item"><span>🪵</span>Mulch Installation</div>
+        <div class="ph-item"><span>🌱</span>Planting Bed</div>
+        <div class="ph-item"><span>🔥</span>Fire Pit Build</div>
+        <div class="ph-item"><span>✂️</span>Hedge Trimming</div>
+        <div class="ph-item"><span>🧱</span>Retaining Wall</div>
+        <div class="ph-item"><span>🌸</span>Flower Planting</div>
+        <div class="ph-item"><span>🪨</span>Walkway Install</div>
+        <div class="ph-item"><span>🪵</span>Mulch Refresh</div>
+        <div class="ph-item"><span>🌿</span>Bed Creation</div>
+        <div class="ph-item"><span>✂️</span>Lawn Edging</div>
+        <div class="ph-item"><span>🪨</span>Patio Makeover</div>
+      </div>
+      <p style="text-align:center;color:var(--text-muted);font-size:0.9rem;margin-top:24px;">Photos coming soon — add your project images to the <code style="background:var(--green-pale);padding:2px 6px;border-radius:4px;color:var(--green-dark);">images/work/</code> folder</p>
+    </div>
+
+    <!-- HARDSCAPING TAB -->
+    <div class="tab-panel" id="tab-hardscaping">
+      <div class="placeholder-grid">
+        <div class="ph-item"><span>🪨</span>Patio Build — Before</div>
+        <div class="ph-item"><span>🪨</span>Patio Build — After</div>
+        <div class="ph-item"><span>🔥</span>Fire Pit — Finished</div>
+        <div class="ph-item"><span>🧱</span>Retaining Wall</div>
+        <div class="ph-item"><span>🪨</span>Stone Walkway</div>
+        <div class="ph-item"><span>🪨</span>Paver Patio</div>
+      </div>
+    </div>
+
+    <!-- MULCHING TAB -->
+    <div class="tab-panel" id="tab-mulching">
+      <div class="placeholder-grid">
+        <div class="ph-item"><span>🪵</span>Fresh Mulch Install</div>
+        <div class="ph-item"><span>🪵</span>Bed Refresh</div>
+        <div class="ph-item"><span>🪵</span>Edged &amp; Mulched Beds</div>
+        <div class="ph-item"><span>🪵</span>Front Yard Mulching</div>
+        <div class="ph-item"><span>🪵</span>Dyed Mulch Install</div>
+        <div class="ph-item"><span>🪵</span>Cleanup &amp; Mulch</div>
+      </div>
+    </div>
+
+    <!-- LANDSCAPING TAB -->
+    <div class="tab-panel" id="tab-landscaping">
+      <div class="placeholder-grid">
+        <div class="ph-item"><span>🌱</span>New Plant Bed</div>
+        <div class="ph-item"><span>🌸</span>Flower Planting</div>
+        <div class="ph-item"><span>🪨</span>Rockscape</div>
+        <div class="ph-item"><span>🌿</span>Shrub Planting</div>
+        <div class="ph-item"><span>🌱</span>Bed Creation</div>
+        <div class="ph-item"><span>🌸</span>Seasonal Color</div>
+      </div>
+    </div>
+
+    <!-- TRIMMING TAB -->
+    <div class="tab-panel" id="tab-trimming">
+      <div class="placeholder-grid">
+        <div class="ph-item"><span>✂️</span>Hedge Trim</div>
+        <div class="ph-item"><span>✂️</span>Lawn Edging</div>
+        <div class="ph-item"><span>✂️</span>Weed-wacking</div>
+        <div class="ph-item"><span>✂️</span>Clean Borders</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">✕</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Project photo">
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Love What You See?</h2>
+    <p>Let's talk about what we can do for your property. Call or text for a free estimate — we'd love to show you what's possible.</p>
+    <div class="btn-wrap">
+      <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
+      <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><!-- injected --></footer>
+<a href="tel:3153320905" class="sticky-call">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Free Estimate
+</a>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.querySelector('img')?.src;
+      if (src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+</body>
+</html>
