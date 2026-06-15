@@ -23,8 +23,8 @@ tjs-website/
 │   ├── components.js       ← Shared nav + footer (injected on every page)
 │   └── main.js             ← Scroll effects, tabs, form handling
 └── images/
-    ├── logo.png             ← ⚠️ ADD YOUR LOGO HERE
-    └── work/               ← ⚠️ ADD YOUR WORK PHOTOS HERE
+    ├── 
+    └──
 ```
 
 ---
