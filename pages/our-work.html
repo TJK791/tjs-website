@@ -85,61 +85,57 @@
       transform: scale(1);
     }
 
-    /* PLACEHOLDER GRID ITEMS */
-    .placeholder-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
+    /* BEFORE/AFTER PAIR */
+    .before-after-pair {
+      margin-bottom: 40px;
     }
 
-    .ph-item {
-      aspect-ratio: 4/3;
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      border: 2px dashed var(--gray-mid);
-      transition: border-color var(--transition), background var(--transition);
-    }
-
-    .ph-item:hover { border-color: var(--green-bright); background: var(--green-pale); }
-    .ph-item span { font-size: 2.2rem; }
-
-    /* HOW TO ADD PHOTOS */
-    .add-photos-guide {
-      background: var(--green-pale);
-      border: 2px solid var(--green-bright);
-      border-radius: var(--radius-lg);
-      padding: 32px 36px;
-      margin-bottom: 48px;
-    }
-
-    .add-photos-guide h3 {
+    .before-after-pair h3 {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: 12px;
+      color: var(--text-main);
+      margin-bottom: 14px;
     }
 
-    .add-photos-guide p {
-      font-size: 0.91rem;
-      color: var(--text-muted);
-      line-height: 1.7;
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
     }
 
-    .add-photos-guide code {
-      background: rgba(26,74,26,0.08);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.88em;
-      color: var(--green-dark);
+    .before-after-side {
+      position: relative;
+    }
+
+    .before-after-side img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ba-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: white;
+    }
+
+    .ba-label.before { background: rgba(0,0,0,0.55); }
+    .ba-label.after  { background: var(--green-bright); }
+
+    @media (max-width: 600px) {
+      .before-after-grid { grid-template-columns: 1fr; }
+      .before-after-side img { height: 240px; }
     }
   </style>
 </head>
@@ -155,7 +151,6 @@
 <section class="section">
   <div class="container">
 
-
     <!-- TABS -->
     <div class="tabs-wrap" data-reveal>
       <div class="tabs">
@@ -169,7 +164,38 @@
 
     <!-- ALL TAB -->
     <div class="tab-panel active" id="tab-all">
-      <div class="gallery-grid">
+
+      <!-- Before/After pairs -->
+      <div class="before-after-pair" data-reveal>
+        <h3>Paver Path Cleanup & Mulching</h3>
+        <div class="before-after-grid">
+          <div class="before-after-side">
+            <img src="../images/before/before7.JPG" alt="Paver path before cleanup">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="before-after-side">
+            <img src="../images/after/after7.JPG" alt="Paver path after cleanup">
+            <span class="ba-label after">After</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="before-after-pair" data-reveal>
+        <h3>Paver Walkway & Mulch Island</h3>
+        <div class="before-after-grid">
+          <div class="before-after-side">
+            <img src="../images/before/before8.JPG" alt="Walkway before cleanup">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="before-after-side">
+            <img src="../images/after/after8.JPG" alt="Walkway after cleanup">
+            <span class="ba-label after">After</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regular gallery photos -->
+      <div class="gallery-grid" data-reveal>
         <div class="gallery-item">
           <img src="../images/after/after1.JPG" alt="Mulch and rock border installation">
           <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
@@ -194,20 +220,40 @@
           <img src="../images/after/after6.JPG" alt="Backyard mulch bed cleanup">
           <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         </div>
-        <div class="gallery-item">
-          <img src="../images/after/after7.JPG" alt="Paver walkway with mulched bed">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/after8.JPG" alt="Curved paver path and mulch island">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
       </div>
     </div>
 
     <!-- HARDSCAPING TAB -->
     <div class="tab-panel" id="tab-hardscaping">
-      <p style="text-align:center;color:var(--text-muted);padding:40px 0;">Photos coming soon!</p>
+
+      <div class="before-after-pair" data-reveal>
+        <h3>Paver Path Cleanup & Mulching</h3>
+        <div class="before-after-grid">
+          <div class="before-after-side">
+            <img src="../images/before/before7.JPG" alt="Paver path before cleanup">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="before-after-side">
+            <img src="../images/after/after7.JPG" alt="Paver path after cleanup">
+            <span class="ba-label after">After</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="before-after-pair" data-reveal>
+        <h3>Paver Walkway & Mulch Island</h3>
+        <div class="before-after-grid">
+          <div class="before-after-side">
+            <img src="../images/before/before8.JPG" alt="Walkway before cleanup">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="before-after-side">
+            <img src="../images/after/after8.JPG" alt="Walkway after cleanup">
+            <span class="ba-label after">After</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- MULCHING TAB -->
@@ -235,14 +281,6 @@
         </div>
         <div class="gallery-item">
           <img src="../images/after/after6.JPG" alt="Backyard mulch bed cleanup">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/after7.JPG" alt="Paver walkway with mulched bed">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/after8.JPG" alt="Curved paver path and mulch island">
           <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         </div>
       </div>
