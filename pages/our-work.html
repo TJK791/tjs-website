@@ -14,7 +14,6 @@
     }
     [data-reveal].revealed { opacity: 1; transform: none; }
 
-    /* LIGHTBOX */
     .lightbox {
       display: none;
       position: fixed;
@@ -25,16 +24,13 @@
       justify-content: center;
       padding: 24px;
     }
-
     .lightbox.active { display: flex; }
-
     .lightbox-img {
       max-width: 90vw;
       max-height: 85vh;
       border-radius: var(--radius-lg);
       object-fit: contain;
     }
-
     .lightbox-close {
       position: fixed;
       top: 20px; right: 24px;
@@ -49,15 +45,9 @@
       transition: background var(--transition);
       line-height: 1;
     }
-
     .lightbox-close:hover { background: rgba(255,255,255,0.3); }
 
-    /* GALLERY ITEM HOVER OVERLAY */
-    .gallery-item {
-      cursor: pointer;
-      position: relative;
-    }
-
+    .gallery-item { cursor: pointer; position: relative; }
     .gallery-item-overlay {
       position: absolute;
       inset: 0;
@@ -68,28 +58,16 @@
       transition: background var(--transition);
       border-radius: var(--radius);
     }
-
-    .gallery-item:hover .gallery-item-overlay {
-      background: rgba(26,74,26,0.5);
-    }
-
+    .gallery-item:hover .gallery-item-overlay { background: rgba(26,74,26,0.5); }
     .gallery-item-overlay svg {
       color: white;
       opacity: 0;
       transform: scale(0.7);
       transition: opacity var(--transition), transform var(--transition);
     }
+    .gallery-item:hover .gallery-item-overlay svg { opacity: 1; transform: scale(1); }
 
-    .gallery-item:hover .gallery-item-overlay svg {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* BEFORE/AFTER PAIR */
-    .before-after-pair {
-      margin-bottom: 40px;
-    }
-
+    .before-after-pair { margin-bottom: 40px; }
     .before-after-pair h3 {
       font-family: var(--font-display);
       font-size: 1.2rem;
@@ -97,7 +75,6 @@
       color: var(--text-main);
       margin-bottom: 14px;
     }
-
     .before-after-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -105,22 +82,16 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
-
-    .before-after-side {
-      position: relative;
-    }
-
+    .before-after-side { position: relative; }
     .before-after-side img {
       width: 100%;
       height: 320px;
       object-fit: cover;
       display: block;
     }
-
     .ba-label {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 12px; left: 12px;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -129,7 +100,6 @@
       border-radius: 20px;
       color: white;
     }
-
     .ba-label.before { background: rgba(0,0,0,0.55); }
     .ba-label.after  { background: var(--green-bright); }
 
@@ -157,7 +127,7 @@
         <button class="tab-btn active" data-tab="all">All Projects</button>
         <button class="tab-btn" data-tab="hardscaping">Hardscaping</button>
         <button class="tab-btn" data-tab="mulching">Mulching</button>
-        <button class="tab-btn" data-tab="landscaping">Landscaping</button>
+        <button class="tab-btn" data-tab="bedwork">Bed Work</button>
         <button class="tab-btn" data-tab="other">Other Projects</button>
       </div>
     </div>
@@ -165,7 +135,6 @@
     <!-- ALL TAB -->
     <div class="tab-panel active" id="tab-all">
 
-      <!-- Hardscaping before/afters -->
       <div class="before-after-pair" data-reveal>
         <h3>Paver Path Cleanup & Mulching</h3>
         <div class="before-after-grid">
@@ -194,23 +163,6 @@
         </div>
       </div>
 
-      <!-- Mulching gallery photos -->
-      <div class="gallery-grid" style="margin-bottom:40px;" data-reveal>
-        <div class="gallery-item">
-          <img src="../images/after/kennyFront.JPG" alt="Front yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/kennyFrontLeft.JPG" alt="Front left yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/kennyFrontRight.JPG" alt="Front right yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-      </div>
-
-      <!-- Mulching before/afters -->
       <div class="before-after-pair" data-reveal>
         <h3>Mulch & Planting Bed</h3>
         <div class="before-after-grid">
@@ -239,7 +191,17 @@
         </div>
       </div>
 
-      <!-- Other Projects before/after -->
+      <div class="gallery-grid" style="margin-bottom:40px;" data-reveal>
+        <div class="gallery-item">
+          <img src="../images/after/kennyFront.JPG" alt="Front bed renovation">
+          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <img src="../images/after/kennyRGarage.JPG" alt="Black mulch installation front">
+          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+      </div>
+
       <div class="before-after-pair" data-reveal>
         <h3>Bed Creation</h3>
         <div class="before-after-grid">
@@ -292,24 +254,7 @@
     <!-- MULCHING TAB -->
     <div class="tab-panel" id="tab-mulching">
 
-      <!-- Regular gallery photos -->
-      <div class="gallery-grid" style="margin-bottom:40px;">
-        <div class="gallery-item">
-          <img src="../images/after/kennyFront.JPG" alt="Front yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/kennyFrontLeft.JPG" alt="Front left yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <img src="../images/after/kennyFrontRight.JPG" alt="Front right yard mulch installation">
-          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </div>
-      </div>
-
-      <!-- Before/After pairs -->
-      <div class="before-after-pair">
+      <div class="before-after-pair" data-reveal>
         <h3>Mulch & Planting Bed</h3>
         <div class="before-after-grid">
           <div class="before-after-side">
@@ -323,7 +268,7 @@
         </div>
       </div>
 
-      <div class="before-after-pair">
+      <div class="before-after-pair" data-reveal>
         <h3>Front Yard Mulch Transformation</h3>
         <div class="before-after-grid">
           <div class="before-after-side">
@@ -339,15 +284,21 @@
 
     </div>
 
-    <!-- LANDSCAPING TAB -->
-    <div class="tab-panel" id="tab-landscaping">
-      <p style="text-align:center;color:var(--text-muted);padding:40px 0;">Photos coming soon!</p>
-    </div>
+    <!-- BED WORK TAB -->
+    <div class="tab-panel" id="tab-bedwork">
 
-    <!-- OTHER PROJECTS TAB -->
-    <div class="tab-panel" id="tab-other">
+      <div class="gallery-grid" style="margin-bottom:40px;" data-reveal>
+        <div class="gallery-item">
+          <img src="../images/after/kennyFront.JPG" alt="Front bed renovation">
+          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <img src="../images/after/kennyRGarage.JPG" alt="Black mulch installation front">
+          <div class="gallery-item-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+      </div>
 
-      <div class="before-after-pair">
+      <div class="before-after-pair" data-reveal>
         <h3>Bed Creation</h3>
         <div class="before-after-grid">
           <div class="before-after-side">
@@ -361,6 +312,11 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- OTHER PROJECTS TAB -->
+    <div class="tab-panel" id="tab-other">
+      <p style="text-align:center;color:var(--text-muted);padding:40px 0;">Photos coming soon!</p>
     </div>
 
   </div>
@@ -392,7 +348,6 @@
 <script src="../js/components.js"></script>
 <script src="../js/main.js"></script>
 <script>
-  // Lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   document.querySelectorAll('.gallery-item').forEach(item => {
