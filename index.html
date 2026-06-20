@@ -11,69 +11,129 @@
     /* ---------- HERO ---------- */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, var(--green-dark) 0%, #1e5c1e 45%, #2d7a2d 100%);
-      display: flex;
-      align-items: center;
-      padding: 100px 24px 60px;
       position: relative;
+      display: flex;
+      align-items: flex-end;
       overflow: hidden;
+      background: var(--green-dark);
     }
 
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(90,173,90,0.18) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
 
-    /* Leaf decorations */
-    .hero-leaf {
+    .hero-scrim {
       position: absolute;
-      opacity: 0.06;
-      pointer-events: none;
-    }
-    .hero-leaf-1 {
-      bottom: -60px; right: -40px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--green-light) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero-leaf-2 {
-      top: 10%; left: -80px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, var(--green-light) 0%, transparent 70%);
-      border-radius: 50%;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(10,30,10,0.55) 0%, rgba(10,30,10,0.30) 35%, rgba(10,30,10,0.45) 70%, rgba(10,30,10,0.80) 100%);
     }
 
-    .hero-inner {
+    .hero-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 32px;
+    }
+
+    .hero-top-btn {
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 13px 26px;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-top-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+    }
+
+    .hero-top-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .hero-top-logo img {
+      height: 56px;
+      width: auto;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-top-logo span {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-top: 4px;
+    }
+
+    .hero-menu-btn {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .hero-menu-btn:hover { background: rgba(255,255,255,0.22); }
+
+    .hero-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 2;
+      width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 32px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
+      padding: 0 32px 90px;
+      text-align: center;
     }
-
-    .hero-content { }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.9);
-      font-size: 0.78rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 7px 16px;
       border-radius: 30px;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .hero-eyebrow::before {
@@ -85,144 +145,286 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-style: italic;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
       font-weight: 900;
       color: var(--white);
-      line-height: 1.08;
-      margin-bottom: 22px;
+      line-height: 1.1;
+      margin-bottom: 26px;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.3);
     }
 
     .hero-title em {
-      font-style: normal;
+      font-style: italic;
       color: var(--green-light);
     }
 
     .hero-desc {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.75;
-      margin-bottom: 36px;
-      max-width: 480px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin: 0 auto 34px;
+      max-width: 540px;
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 36px;
     }
 
-    .hero-phones {
-      margin-top: 40px;
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
+    .hero-address {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .hero-phone {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255,255,255,0.8);
-      font-size: 0.95rem;
-      transition: color var(--transition);
+    /* ---------- SLIDE-OUT NAV ---------- */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
     }
 
-    .hero-phone:hover { color: var(--white); }
-
-    .hero-phone-icon {
-      width: 38px; height: 38px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .hero-phone strong { display: block; font-size: 1rem; font-weight: 700; }
-    .hero-phone span { font-size: 0.78rem; opacity: 0.7; }
-
-    /* Hero visual side */
-    .hero-visual {
+    .nav-panel {
+      position: fixed;
+      top: 0; right: 0;
+      bottom: 0;
+      width: min(420px, 100%);
+      background: linear-gradient(160deg, var(--green-dark) 0%, #1e5c1e 100%);
+      z-index: 2001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      align-items: flex-end;
+      overflow-y: auto;
+      padding: 28px 36px 40px;
     }
 
-    .hero-img-main {
+    .nav-panel.open { transform: translateX(0); }
+
+    .nav-panel-close {
+      align-self: flex-end;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+      margin-bottom: 24px;
+    }
+
+    .nav-panel-close:hover { background: rgba(255,255,255,0.2); }
+
+    .nav-panel-logo {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .nav-panel-logo img {
+      height: 64px;
+      width: auto;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+    }
+
+    .nav-panel-logo .brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--white);
+      display: block;
+    }
+
+    .nav-panel-logo .sub {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .nav-panel-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .nav-panel-links a {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 13px 0;
       width: 100%;
-      max-width: 460px;
-      aspect-ratio: 4/3;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+      text-align: center;
+      border-radius: 8px;
+      transition: background var(--transition), color var(--transition);
     }
 
-    .hero-img-main img {
-      width: 100%; height: 100%;
-      object-fit: cover;
+    .nav-panel-links a:hover, .nav-panel-links a.active {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
     }
 
-    .hero-img-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #2d6b2d 0%, #3a8a3a 50%, #5aad5a 100%);
+    .nav-panel-dropdown { width: 100%; }
+
+    .nav-panel-dropdown-toggle {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.88);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 13px 0;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background var(--transition);
+    }
+
+    .nav-panel-dropdown-toggle:hover { background: rgba(255,255,255,0.1); }
+
+    .nav-panel-dropdown-toggle svg {
+      transition: transform var(--transition);
+    }
+
+    .nav-panel-dropdown.open .nav-panel-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    .nav-panel-dropdown-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition);
+      display: flex;
       flex-direction: column;
-      gap: 12px;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-img-placeholder span { font-size: 3rem; }
-
-    .hero-badge-wrap {
-      position: absolute;
-      bottom: -16px;
-      left: -16px;
-      background: var(--white);
-      border-radius: 14px;
-      padding: 14px 18px;
-      box-shadow: var(--shadow-md);
-      display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 200px;
     }
 
-    .hbw-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      background: var(--green-pale);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
+    .nav-panel-dropdown.open .nav-panel-dropdown-menu {
+      max-height: 200px;
     }
 
-    .hbw-text strong { display: block; font-size: 0.92rem; color: var(--text-main); font-weight: 700; }
-    .hbw-text span { font-size: 0.78rem; color: var(--text-muted); }
-
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-      max-width: 460px;
+    .nav-panel-dropdown-menu a {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 9px 0;
+      width: 100%;
+      text-align: center;
+      transition: color var(--transition);
     }
 
-    .hero-chip {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+    .nav-panel-dropdown-menu a:hover { color: var(--white); }
+
+    .nav-panel-footer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .nav-panel-footer p {
       color: rgba(255,255,255,0.85);
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 30px;
-      backdrop-filter: blur(8px);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 16px;
     }
+
+    .nav-panel-footer a.btn-white {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ---------- ABOUT STRIP ---------- */
+    .about-strip {
+      background: var(--off-white);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .about-strip-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .about-strip p.lead {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .about-strip .specializing {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .about-strip .specializing span {
+      color: var(--green-bright);
+      margin: 0 6px;
+    }
+
+    /* ---------- BEFORE/AFTER (moved below hero) ---------- */
+    .ba-section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ba-section-side { position: relative; }
+
+    .ba-section-side img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ba-section-label {
+      position: absolute;
+      top: 14px; left: 14px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: white;
+    }
+
+    .ba-section-label.before { background: rgba(0,0,0,0.55); }
+    .ba-section-label.after  { background: var(--green-bright); }
 
     /* ---------- SERVICES PREVIEW ---------- */
     .services-preview {
@@ -360,15 +562,18 @@
     }
 
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 44px; }
-      .hero-visual { align-items: center; }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .testimonials-strip { grid-template-columns: 1fr; }
       .area-wrap { grid-template-columns: 1fr; }
+      .ba-section-grid { grid-template-columns: 1fr; }
+      .ba-section-side img { height: 280px; }
     }
 
     @media (max-width: 640px) {
       .why-grid { grid-template-columns: 1fr; }
+      .hero-top { padding: 20px; }
+      .hero-top-btn { padding: 11px 18px; font-size: 0.84rem; }
+      .hero-top-logo img { height: 44px; }
     }
 
     /* Reveal animations */
@@ -385,62 +590,100 @@
 </head>
 <body>
 
-<nav class="navbar"><!-- injected --></nav>
+<!-- SLIDE-OUT NAV -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<div class="nav-panel" id="nav-panel">
+  <button class="nav-panel-close" id="nav-panel-close" aria-label="Close menu">✕</button>
+  <div class="nav-panel-logo">
+    <img src="images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+    <span class="brand">TJ'S</span>
+    <span class="sub">Property Management</span>
+  </div>
+  <div class="nav-panel-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="pages/about.html">About</a>
+    <div class="nav-panel-dropdown" id="nav-services-dropdown">
+      <button class="nav-panel-dropdown-toggle" id="nav-services-toggle">
+        Services
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="nav-panel-dropdown-menu">
+        <a href="pages/services.html#hardscaping">Hardscaping</a>
+        <a href="pages/services.html#mulching-bedwork">Mulching & Bed Work</a>
+      </div>
+    </div>
+    <a href="pages/our-work.html">Our Work</a>
+    <a href="pages/reviews.html">Reviews</a>
+    <a href="pages/contact.html">Contact</a>
+  </div>
+  <div class="nav-panel-footer">
+    <p>Looking forward to hearing from you!</p>
+    <a href="tel:3153320905" class="btn btn-white">Call Us</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-leaf hero-leaf-1"></div>
-  <div class="hero-leaf hero-leaf-2"></div>
-  <div class="hero-inner">
-    <div class="hero-content" style="padding-left:0px;">
-      <div class="hero-eyebrow">Founded in Victor, NY &bull; Upstate New York</div>
-      <h1 class="hero-title">
-        Landscaping<br>
-        Done <em>Right</em><br>
-        the First Time
-      </h1>
-      <p class="hero-desc">
-        From stunning patio makeovers to lush mulched beds — TJ's Property Management delivers quality outdoor results at honest prices. No shortcuts. Just results you'll love.
-      </p>
-      <div class="hero-actions">
-        <a href="pages/contact.html" class="btn btn-white">Get a Free Estimate</a>
-        <a href="pages/services.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:var(--white);">See Our Services</a>
-      </div>
-      <div class="hero-phones">
-        <a href="tel:3153320905" class="hero-phone">
-          <div class="hero-phone-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div><strong>315-332-0905</strong><span>Call or Text</span></div>
-        </a>
-        <a href="tel:5853536926" class="hero-phone">
-          <div class="hero-phone-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div><strong>585-353-6926</strong><span>Call or Text</span></div>
-        </a>
-      </div>
-    </div>
+  <img class="hero-bg" src="images/after/after5.JPG" alt="TJ's Property Management landscaping work">
+  <div class="hero-scrim"></div>
 
-<div class="hero-visual">
-  <div class="hero-img-main" style="max-width:1100px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;height:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.35);">
-      <div style="position:relative;">
-        <img src="/images/before/before1.JPG" style="width:100%;height:520px;object-fit:cover;" alt="Before">
-        <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.55);color:white;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px;">Before</div>
-      </div>
-      <div style="position:relative;">
-        <img src="/images/after/after1.JPG" style="width:100%;height:520px;object-fit:cover;" alt="After"> 
-        <div style="position:absolute;top:12px;left:12px;background:var(--green-bright);color:white;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px;">After</div>
-      </div>
+  <div class="hero-top">
+    <a href="pages/contact.html" class="hero-top-btn">Get a Free Estimate</a>
+    <div class="hero-top-logo">
+      <img src="images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+      <span>Property Management</span>
     </div>
+    <button class="hero-menu-btn" id="hero-menu-btn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-eyebrow">Founded in Victor, NY &bull; Upstate New York</div>
+    <h1 class="hero-title">Landscaping Done <em>Right</em> the First Time</h1>
+    <p class="hero-desc">
+      From stunning patio makeovers to lush mulched beds — TJ's Property Management delivers quality outdoor results at honest prices. No shortcuts. Just results you'll love.
+    </p>
+    <div class="hero-actions">
+      <a href="pages/contact.html" class="btn btn-white">Get a Free Estimate</a>
+      <a href="pages/services.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.6);color:var(--white);">See Our Services</a>
+    </div>
+    <a href="tel:3153320905" class="hero-address">315-332-0905 &bull; 585-353-6926</a>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip">
+  <div class="about-strip-inner" data-reveal>
+    <p class="lead">
+      TJ's Property Management was started by Tenzin and Jacob, two hardworking, college-bound guys from Victor, NY who grew up with real landscaping experience and a drive to do right by every customer. We treat every yard like it's our own and won't leave until you're happy with the results — that's our promise on every job.
+    </p>
+    <p class="specializing">Specializing In: <span>Hardscaping</span> • <span>Mulching & Bed Work</span> • <span>Landscaping</span> • <span>Trimming & Edging</span></p>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center" data-reveal style="margin-bottom:36px;">
+      <div class="section-label">Real Results</div>
+      <h2 class="section-title">See the Transformation</h2>
+    </div>
+    <div class="ba-section-grid" data-reveal>
+      <div class="ba-section-side">
+        <img src="images/before/before1.JPG" alt="Before landscaping work">
+        <span class="ba-section-label before">Before</span>
+      </div>
+      <div class="ba-section-side">
+        <img src="images/after/after1.JPG" alt="After landscaping work">
+        <span class="ba-section-label after">After</span>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- SERVICES PREVIEW -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="text-center" data-reveal>
       <div class="section-label">What We Do</div>
@@ -455,8 +698,8 @@
       </div>
       <div class="service-preview-card" data-reveal>
         <div class="spc-icon">🪵</div>
-        <div class="spc-title">Mulching</div>
-        <p class="spc-desc">Clean, fresh mulch installation that protects your plants, retains moisture, and gives every bed a polished, professional look. One of our specialties.</p>
+        <div class="spc-title">Mulching & Bed Work</div>
+        <p class="spc-desc">Clean, fresh mulch installation and bed renovation that protects your plants and gives every yard a polished, professional look.</p>
       </div>
       <div class="service-preview-card" data-reveal>
         <div class="spc-icon">🌱</div>
@@ -470,13 +713,13 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:40px;">
-      <a href="services.html" class="btn btn-primary">View All Services →</a>
+      <a href="pages/services.html" class="btn btn-primary">View All Services →</a>
     </div>
   </div>
 </section>
 
 <!-- WHY TJ'S -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="text-center" data-reveal>
       <div class="section-label">Why Choose Us</div>
@@ -506,7 +749,7 @@
 </section>
 
 <!-- TESTIMONIAL STRIP -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="text-center" data-reveal>
       <div class="section-label">What Customers Say</div>
@@ -515,13 +758,13 @@
     <div class="testimonials-strip">
     </div>
     <div style="text-align:center;margin-top:36px;">
-      <a href="reviews.html" class="btn btn-outline">Read All Reviews →</a>
+      <a href="pages/reviews.html" class="btn btn-outline">Read All Reviews →</a>
     </div>
   </div>
 </section>
 
 <!-- AREA SERVED -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="area-wrap" data-reveal>
       <div>
@@ -530,7 +773,7 @@
         <p style="color:var(--text-muted);font-size:0.97rem;line-height:1.75;margin-bottom:20px;">
           Based in Victor, NY — we're your local landscaping crew serving the greater Rochester area and all of Upstate New York. Not sure if we cover your area? Just reach out — we're likely closer than you think.
         </p>
-        <a href="contact.html" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href="pages/contact.html" class="btn btn-primary">Get Your Free Estimate</a>
       </div>
       <div>
         <div class="area-tags">
@@ -558,7 +801,7 @@
     <div class="btn-wrap">
       <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
       <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
-      <a href="mailto:tjs.management@gmail.com" class="btn" style="background:rgba(255,255,255,0.15);color:var(--white);border:1px solid rgba(255,255,255,0.3);">✉️ Email Us</a>
+      <a href="mailto:tjspropertymngmnt@gmail.com" class="btn" style="background:rgba(255,255,255,0.15);color:var(--white);border:1px solid rgba(255,255,255,0.3);">✉️ Email Us</a>
     </div>
   </div>
 </section>
@@ -572,5 +815,34 @@
 
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // Slide-out nav panel logic
+  (function() {
+    const overlay = document.getElementById('nav-overlay');
+    const panel = document.getElementById('nav-panel');
+    const menuBtn = document.getElementById('hero-menu-btn');
+    const closeBtn = document.getElementById('nav-panel-close');
+    const dropdown = document.getElementById('nav-services-dropdown');
+    const dropdownToggle = document.getElementById('nav-services-toggle');
+
+    function openNav() {
+      overlay.classList.add('open');
+      panel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      overlay.classList.remove('open');
+      panel.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (menuBtn) menuBtn.addEventListener('click', openNav);
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    if (overlay) overlay.addEventListener('click', closeNav);
+    if (dropdownToggle) dropdownToggle.addEventListener('click', () => {
+      dropdown.classList.toggle('open');
+    });
+  })();
+</script>
 </body>
 </html>
