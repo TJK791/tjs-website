@@ -405,6 +405,100 @@
       margin: 0 6px;
     }
 
+    .trust-list {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    .trust-item {
+      max-width: 220px;
+      text-align: center;
+    }
+
+    .trust-item h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .trust-item p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ---------- PHOTO SERVICE CARDS ---------- */
+    .photo-services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .photo-service-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: block;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .photo-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .photo-service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-service-card:hover img { transform: scale(1.06); }
+
+    .photo-service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,30,10,0) 40%, rgba(10,30,10,0.78) 100%);
+    }
+
+    .photo-service-card-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      padding: 22px 24px;
+    }
+
+    .photo-service-card-label h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .photo-service-card-label span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.78);
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .photo-services-grid { grid-template-columns: 1fr; }
+      .trust-list { gap: 24px; }
+    }
+
     /* ---------- BEFORE/AFTER (moved below hero) ---------- */
     .ba-section-grid {
       display: grid;
@@ -683,58 +777,61 @@
       TJ's Property Management was started by Tenzin and Jacob, two hardworking, college-bound guys from Victor, NY who grew up with real landscaping experience and a drive to do right by every customer. We treat every yard like it's our own and won't leave until you're happy with the results — that's our promise on every job.
     </p>
     <p class="specializing">Specializing In: <span>Hardscaping</span> • <span>Mulching & Bed Work</span> • <span>Landscaping</span> • <span>Trimming & Edging</span></p>
+
+    <div class="trust-list">
+      <div class="trust-item">
+        <h4>Done Right the First Time</h4>
+        <p>We won't leave until you're fully satisfied — no cutting corners, no second-guessing.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Budget Friendly Pricing</h4>
+        <p>Fair, transparent pricing with free estimates so there are never any surprises.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Hardworking & Reliable</h4>
+        <p>We treat every yard like it's our own and see every job through to the end.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- BEFORE/AFTER -->
+<!-- SERVICES -->
 <section class="section section-alt">
-  <div class="container">
-    <div class="text-center" data-reveal style="margin-bottom:36px;">
-      <div class="section-label">Real Results</div>
-      <h2 class="section-title">See the Transformation</h2>
-    </div>
-    <div class="ba-section-grid" data-reveal>
-      <div class="ba-section-side">
-        <img src="images/before/before1.JPG" alt="Before landscaping work">
-        <span class="ba-section-label before">Before</span>
-      </div>
-      <div class="ba-section-side">
-        <img src="images/after/after1.JPG" alt="After landscaping work">
-        <span class="ba-section-label after">After</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES PREVIEW -->
-<section class="section">
   <div class="container">
     <div class="text-center" data-reveal>
       <div class="section-label">What We Do</div>
       <h2 class="section-title">Services Built Around Your Property</h2>
       <p class="section-sub">We specialize in transforming outdoor spaces — big and small. Whether it's a custom patio or a fresh mulch bed, we handle it with care.</p>
     </div>
-    <div class="services-preview">
-      <div class="service-preview-card" data-reveal>
-        <div class="spc-icon">🪨</div>
-        <div class="spc-title">Hardscaping</div>
-        <p class="spc-desc">Patio makeovers, fire pits, and retaining walls built to last. Our specialty — transforming outdoor spaces from ordinary to extraordinary.</p>
-      </div>
-      <div class="service-preview-card" data-reveal>
-        <div class="spc-icon">🪵</div>
-        <div class="spc-title">Mulching & Bed Work</div>
-        <p class="spc-desc">Clean, fresh mulch installation and bed renovation that protects your plants and gives every yard a polished, professional look.</p>
-      </div>
-      <div class="service-preview-card" data-reveal>
-        <div class="spc-icon">🌱</div>
-        <div class="spc-title">Landscaping</div>
-        <p class="spc-desc">Plant installations, flower bed creation, edging, and weeding. We design and maintain spaces that stay beautiful season after season.</p>
-      </div>
-      <div class="service-preview-card" data-reveal>
-        <div class="spc-icon">✂️</div>
-        <div class="spc-title">Trimming & Edging</div>
-        <p class="spc-desc">Crisp edges, trimmed hedges, and weed-wacked borders. The finishing details that make the difference between good and great.</p>
-      </div>
+    <div class="photo-services-grid" data-reveal>
+      <a href="pages/services.html#hardscaping" class="photo-service-card">
+        <img src="images/after/after7.JPG" alt="Hardscaping work">
+        <div class="photo-service-card-label">
+          <h3>Hardscaping</h3>
+          <span>Patios, fire pits & retaining walls</span>
+        </div>
+      </a>
+      <a href="pages/services.html#mulching-bedwork" class="photo-service-card">
+        <img src="images/after/after4.JPG" alt="Mulching and bed work">
+        <div class="photo-service-card-label">
+          <h3>Mulching & Bed Work</h3>
+          <span>Fresh mulch, clean edges, healthy beds</span>
+        </div>
+      </a>
+      <a href="pages/services.html" class="photo-service-card">
+        <img src="images/after/after6.JPG" alt="Landscaping and planting work">
+        <div class="photo-service-card-label">
+          <h3>Landscaping</h3>
+          <span>Plant beds, flowers & design</span>
+        </div>
+      </a>
+      <a href="pages/services.html" class="photo-service-card">
+        <img src="images/after/after3.JPG" alt="Trimming and edging work">
+        <div class="photo-service-card-label">
+          <h3>Trimming & Edging</h3>
+          <span>Crisp borders, finishing details</span>
+        </div>
+      </a>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a href="pages/services.html" class="btn btn-primary">View All Services →</a>
@@ -742,62 +839,34 @@
   </div>
 </section>
 
-<!-- WHY TJ'S -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="text-center" data-reveal>
-      <div class="section-label">Why Choose Us</div>
-      <h2 class="section-title">What Sets TJ's Apart</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card" data-reveal>
-        <div class="why-num">01</div>
-        <div class="why-icon">🎯</div>
-        <h3>Done Right the First Time</h3>
-        <p>We take pride in our work and won't leave until you're fully satisfied. No cutting corners, no second-guessing — just quality results from the start.</p>
-      </div>
-      <div class="why-card" data-reveal>
-        <div class="why-num">02</div>
-        <div class="why-icon">💰</div>
-        <h3>Budget Friendly Pricing</h3>
-        <p>Great landscaping shouldn't break the bank. We keep our pricing fair, transparent, and competitive — with free estimates so there are never any surprises.</p>
-      </div>
-      <div class="why-card" data-reveal>
-        <div class="why-num">03</div>
-        <div class="why-icon">🤝</div>
-        <h3>Hardworking & Reliable</h3>
-        <p>We treat every yard like it's our own. Two motivated, college-bound guys with real experience who show up on time and see every job through to the end.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL STRIP -->
+<!-- REVIEWS -->
 <section class="section">
   <div class="container">
     <div class="text-center" data-reveal>
       <div class="section-label">What Customers Say</div>
       <h2 class="section-title">Real Reviews from Real Neighbors</h2>
+      <p class="section-sub" style="margin:0 auto;">See what your neighbors are saying about working with TJ's.</p>
     </div>
-    <div class="testimonials-strip">
-    </div>
-    <div style="text-align:center;margin-top:36px;">
+    <div style="text-align:center;margin-top:32px;">
       <a href="pages/reviews.html" class="btn btn-outline">Read All Reviews →</a>
     </div>
   </div>
 </section>
 
-<!-- AREA SERVED -->
+<!-- AREA SERVED + CTA -->
 <section class="section section-alt">
   <div class="container">
     <div class="area-wrap" data-reveal>
       <div>
         <div class="section-label">Service Area</div>
         <h2 class="section-title" style="font-size:2rem;">Founded in Victor, Serving All of Upstate NY</h2>
-        <p style="color:var(--text-muted);font-size:0.97rem;line-height:1.75;margin-bottom:20px;">
-          Based in Victor, NY — we're your local landscaping crew serving the greater Rochester area and all of Upstate New York. Not sure if we cover your area? Just reach out — we're likely closer than you think.
+        <p style="color:var(--text-muted);font-size:0.97rem;line-height:1.75;margin-bottom:24px;">
+          Based in Victor, NY — we're your local landscaping crew serving the greater Rochester area and all of Upstate New York. Contact us today for a no-obligation free estimate — no pressure, no surprises.
         </p>
-        <a href="pages/contact.html" class="btn btn-primary">Get Your Free Estimate</a>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="pages/contact.html" class="btn btn-primary">Get Your Free Estimate</a>
+          <a href="tel:3153320905" class="btn btn-outline">📞 315-332-0905</a>
+        </div>
       </div>
       <div>
         <div class="area-tags">
@@ -813,19 +882,6 @@
           <span class="area-tag">📍 And More...</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="section-title">Ready to Transform Your Property?</h2>
-    <p>Contact us today for a no-obligation free estimate. We'll come take a look and give you an honest quote — no pressure, no surprises.</p>
-    <div class="btn-wrap">
-      <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
-      <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
-      <a href="mailto:tjspropertymngmnt@gmail.com" class="btn" style="background:rgba(255,255,255,0.15);color:var(--white);border:1px solid rgba(255,255,255,0.3);">✉️ Email Us</a>
     </div>
   </div>
 </section>
