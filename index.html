@@ -437,7 +437,7 @@
     /* ---------- PHOTO SERVICE CARDS ---------- */
     .photo-services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 48px;
     }
@@ -492,6 +492,10 @@
       font-size: 0.82rem;
       color: rgba(255,255,255,0.78);
       font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .photo-services-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 640px) {
@@ -787,17 +791,10 @@
         </div>
       </a>
       <a href="pages/services.html#mulching-bedwork" class="photo-service-card">
-        <img src="images/after/after4.JPG" alt="Mulching and bed work">
+        <img src="images/after/kennyFront.JPG" alt="Mulching and bed work">
         <div class="photo-service-card-label">
           <h3>Mulching & Bed Work</h3>
           <span>Fresh mulch, clean edges, healthy beds</span>
-        </div>
-      </a>
-      <a href="pages/services.html" class="photo-service-card">
-        <img src="images/after/after6.JPG" alt="Landscaping and planting work">
-        <div class="photo-service-card-label">
-          <h3>Landscaping</h3>
-          <span>Plant beds, flowers & design</span>
         </div>
       </a>
       <a href="pages/services.html" class="photo-service-card">
