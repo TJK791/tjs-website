@@ -4,35 +4,114 @@
 // ============================================
 
 (function() {
-  // Detect if we're in the /pages/ subdirectory
   const inPages = window.location.pathname.includes('/pages/');
   const root = inPages ? '../' : '';
 
   function injectNav() {
-    const nav = document.querySelector('.navbar');
-    if (!nav) return;
-    nav.innerHTML = `
-      <div class="nav-inner">
-        <a href="${root}index.html" class="nav-logo">
+    // Inject slide-out overlay + panel before body content
+    const overlayHTML = `
+      <div class="nav-overlay" id="nav-overlay"></div>
+      <div class="nav-panel" id="nav-panel">
+        <button class="nav-panel-close" id="nav-panel-close" aria-label="Close menu">✕</button>
+        <div class="nav-panel-logo">
           <img src="${root}images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
-          <div class="nav-logo-text">
-            <span class="brand">TJ'S</span>
-            <span class="sub">Property Management</span>
-          </div>
-        </a>
-        <nav class="nav-links" id="nav-links">
+          <span class="brand">TJ'S</span>
+          <span class="sub">Property Management</span>
+        </div>
+        <div class="nav-panel-links">
           <a href="${root}index.html">Home</a>
           <a href="${root}pages/about.html">About</a>
-          <a href="${root}pages/services.html">Services</a>
+          <div class="nav-panel-dropdown" id="nav-services-dropdown">
+            <button class="nav-panel-dropdown-toggle" id="nav-services-toggle">
+              Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="nav-panel-dropdown-menu">
+              <a href="${root}pages/services.html#hardscaping">Hardscaping</a>
+              <a href="${root}pages/services.html#mulching-bedwork">Mulching & Bed Work</a>
+            </div>
+          </div>
           <a href="${root}pages/our-work.html">Our Work</a>
           <a href="${root}pages/reviews.html">Reviews</a>
-          <a href="${root}pages/contact.html" class="nav-cta">Free Estimate</a>
-        </nav>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
+          <a href="${root}pages/contact.html">Contact</a>
+        </div>
+        <div class="nav-panel-footer">
+          <p>Looking forward to hearing from you!</p>
+          <a href="tel:3153320905" class="btn btn-white">Call Us</a>
+        </div>
       </div>
     `;
+
+    // Top bar HTML
+    const topBarHTML = `
+      <div class="site-top-bar" id="site-top-bar">
+        <div class="site-top-bar-inner">
+          <a href="tel:3153320905" class="site-top-call" aria-label="Call us">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </a>
+          <a href="${root}index.html" class="site-top-logo">
+            <img src="${root}images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+            <div class="site-top-logo-text">
+              <span class="brand">TJ'S</span>
+              <span class="sub">Property Management</span>
+            </div>
+          </a>
+          <button class="site-menu-btn" id="site-menu-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    // Insert overlay + panel at start of body
+    document.body.insertAdjacentHTML('afterbegin', overlayHTML);
+    // Insert top bar after overlay/panel
+    document.body.insertAdjacentHTML('afterbegin', topBarHTML);
+
+    // Wire up interactions
+    const overlay = document.getElementById('nav-overlay');
+    const panel = document.getElementById('nav-panel');
+    const menuBtn = document.getElementById('site-menu-btn');
+    const closeBtn = document.getElementById('nav-panel-close');
+    const dropdown = document.getElementById('nav-services-dropdown');
+    const dropdownToggle = document.getElementById('nav-services-toggle');
+
+    function openNav() {
+      overlay.classList.add('open');
+      panel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      overlay.classList.remove('open');
+      panel.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (menuBtn) menuBtn.addEventListener('click', openNav);
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    if (overlay) overlay.addEventListener('click', closeNav);
+    if (dropdownToggle) dropdownToggle.addEventListener('click', () => {
+      dropdown.classList.toggle('open');
+    });
+
+    // Scroll effect on top bar
+    const topBar = document.getElementById('site-top-bar');
+    if (topBar) {
+      window.addEventListener('scroll', () => {
+        topBar.classList.toggle('scrolled', window.scrollY > 30);
+      });
+    }
+
+    // Mark active nav link
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-panel-links a').forEach(link => {
+      const href = link.getAttribute('href') || '';
+      if (href.includes(currentPage) && currentPage !== 'index.html') {
+        link.classList.add('active');
+      } else if (currentPage === 'index.html' && href.endsWith('index.html')) {
+        link.classList.add('active');
+      }
+    });
   }
 
   function injectFooter() {
