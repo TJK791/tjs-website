@@ -23,8 +23,8 @@ tjs-website/
 │   ├── components.js       ← Shared nav + footer (injected on every page)
 │   └── main.js             ← Scroll effects, tabs, form handling
 └── images/
-    ├── 
-    └──
+    ├── after/
+    └── before/
 ```
 
 ---
