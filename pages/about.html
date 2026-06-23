@@ -16,10 +16,11 @@
 
     /* ---------- PHOTO HERO (matches homepage exactly) ---------- */
     .hero {
-      min-height: 100vh;
+      min-height: 65vh;
+      max-height: 65vh;
       position: relative;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       overflow: hidden;
       background: var(--green-dark);
     }
@@ -118,7 +119,7 @@
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 32px 90px;
+      padding: 80px 32px 32px;
       text-align: center;
     }
 
@@ -145,8 +146,8 @@
     .site-top-bar { display: none !important; }
 
     @media (max-width: 640px) {
-      .hero { align-items: center; }
-      .hero-body { padding-bottom: 0; }
+      .hero { min-height: 50vh; max-height: 50vh; }
+      .hero-body { padding: 70px 20px 20px; }
       .hero-top { padding: 20px; }
       .hero-top-btn { display: none; }
       .hero-top-logo img { height: 44px; }
