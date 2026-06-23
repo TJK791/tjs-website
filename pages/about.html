@@ -229,10 +229,11 @@
     .team-card {
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 36px 32px;
+      padding: 0;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--green-pale);
       transition: transform var(--transition), box-shadow var(--transition);
+      overflow: hidden;
     }
 
     .team-card:hover {
@@ -240,18 +241,16 @@
       box-shadow: var(--shadow-md);
     }
 
-    .team-card-initial {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      background: var(--green-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--white);
-      margin-bottom: 18px;
+    .team-card-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .team-card-body {
+      padding: 24px 28px 28px;
     }
 
     .team-card h3 {
@@ -410,16 +409,20 @@
     </div>
     <div class="team-grid" data-reveal>
       <div class="team-card">
-        <div class="team-card-initial">T</div>
-        <h3>Tenzin</h3>
-        <div class="role">Co-Founder</div>
-        <p>Handles hardscaping projects and patio builds. Brings patience, precision, and a real eye for design to every outdoor transformation.</p>
+        <img class="team-card-photo" src="../images/tenzin.jpg" alt="Tenzin — Co-Founder">
+        <div class="team-card-body">
+          <h3>Tenzin</h3>
+          <div class="role">Co-Founder</div>
+          <p>Handles hardscaping projects and patio builds. Brings patience, precision, and a real eye for design to every outdoor transformation.</p>
+        </div>
       </div>
       <div class="team-card">
-        <div class="team-card-initial">J</div>
-        <h3>Jacob</h3>
-        <div class="role">Co-Founder</div>
-        <p>Specializes in planting, mulching, and bed work. Takes pride in making yards look clean, healthy, and professionally finished every time.</p>
+        <img class="team-card-photo" src="../images/jacob.jpg" alt="Jacob — Co-Founder">
+        <div class="team-card-body">
+          <h3>Jacob</h3>
+          <div class="role">Co-Founder</div>
+          <p>Specializes in planting, mulching, and bed work. Takes pride in making yards look clean, healthy, and professionally finished every time.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -452,11 +455,10 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2 class="section-title">Let's Work on Your Property</h2>
-    <p>Ready to get started? Reach out for a free, no-obligation estimate. We'll walk your property, talk through your goals, and give you an honest quote.</p>
+    <h2 class="section-title">Ready to Get Started?</h2>
+    <p>Reach out for a free, no-obligation estimate. We'd love to work on your property.</p>
     <div class="btn-wrap">
-      <a href="tel:3153320905" class="btn btn-white">📞 315-332-0905</a>
-      <a href="tel:5853536926" class="btn btn-white">📞 585-353-6926</a>
+      <a href="contact.html" class="btn btn-white">Contact Us</a>
     </div>
   </div>
 </section>
