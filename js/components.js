@@ -8,7 +8,6 @@
   const root = inPages ? '../' : '';
 
   function injectNav() {
-    // Inject slide-out overlay + panel before body content
     const overlayHTML = `
       <div class="nav-overlay" id="nav-overlay"></div>
       <div class="nav-panel" id="nav-panel">
@@ -27,8 +26,9 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="nav-panel-dropdown-menu">
-              <a href="${root}pages/services.html#hardscaping">Hardscaping</a>
-              <a href="${root}pages/services.html#mulching-bedwork">Mulching & Bed Work</a>
+              <a href="${root}pages/hardscaping.html">Hardscaping</a>
+              <a href="${root}pages/mulching.html">Mulching & Bed Work</a>
+              <a href="${root}pages/trimming.html">Trimming & Edging</a>
             </div>
           </div>
           <a href="${root}pages/our-work.html">Our Work</a>
@@ -42,7 +42,6 @@
       </div>
     `;
 
-    // Top bar HTML
     const topBarHTML = `
       <div class="site-top-bar" id="site-top-bar">
         <div class="site-top-bar-inner">
@@ -63,18 +62,17 @@
       </div>
     `;
 
-    // Insert overlay + panel at start of body
     document.body.insertAdjacentHTML('afterbegin', overlayHTML);
-    // Insert top bar after overlay/panel
-   if (inPages) {
-     document.body.insertAdjacentHTML('afterbegin', topBarHTML);
-   }
 
-    // Wire up interactions
+    if (inPages) {
+      document.body.insertAdjacentHTML('afterbegin', topBarHTML);
+    }
+
     const overlay = document.getElementById('nav-overlay');
     const panel = document.getElementById('nav-panel');
     const menuBtn = document.getElementById('site-menu-btn');
     const closeBtn = document.getElementById('nav-panel-close');
+    const heroMenuBtn = document.getElementById('hero-menu-btn');
     const dropdown = document.getElementById('nav-services-dropdown');
     const dropdownToggle = document.getElementById('nav-services-toggle');
 
@@ -90,13 +88,13 @@
     }
 
     if (menuBtn) menuBtn.addEventListener('click', openNav);
+    if (heroMenuBtn) heroMenuBtn.addEventListener('click', openNav);
     if (closeBtn) closeBtn.addEventListener('click', closeNav);
     if (overlay) overlay.addEventListener('click', closeNav);
     if (dropdownToggle) dropdownToggle.addEventListener('click', () => {
       dropdown.classList.toggle('open');
     });
 
-    // Scroll effect on top bar
     const topBar = document.getElementById('site-top-bar');
     if (topBar) {
       window.addEventListener('scroll', () => {
@@ -104,7 +102,6 @@
       });
     }
 
-    // Mark active nav link
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-panel-links a').forEach(link => {
       const href = link.getAttribute('href') || '';
@@ -131,7 +128,9 @@
             <ul>
               <li><a href="${root}index.html">Home</a></li>
               <li><a href="${root}pages/about.html">About Us</a></li>
-              <li><a href="${root}pages/services.html">Services</a></li>
+              <li><a href="${root}pages/hardscaping.html">Hardscaping</a></li>
+              <li><a href="${root}pages/mulching.html">Mulching & Bed Work</a></li>
+              <li><a href="${root}pages/trimming.html">Trimming & Edging</a></li>
               <li><a href="${root}pages/our-work.html">Our Work</a></li>
               <li><a href="${root}pages/reviews.html">Reviews</a></li>
               <li><a href="${root}pages/contact.html">Free Estimate</a></li>
