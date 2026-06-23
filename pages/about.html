@@ -14,6 +14,60 @@
     }
     [data-reveal].revealed { opacity: 1; transform: none; }
 
+    /* ---------- PHOTO HERO (inner pages) ---------- */
+    .inner-hero {
+      min-height: 60vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--green-dark);
+    }
+
+    .inner-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .inner-hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(10,30,10,0.45) 0%, rgba(10,30,10,0.25) 40%, rgba(10,30,10,0.65) 100%);
+    }
+
+    .inner-hero-body {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 32px 64px;
+      text-align: center;
+    }
+
+    .inner-hero-body h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    .inner-hero-body p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
     /* ---------- STORY SECTION ---------- */
     .story-section {
       display: grid;
@@ -30,8 +84,7 @@
     }
 
     .story-img img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
     }
 
@@ -143,7 +196,6 @@
     .values-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
       margin-top: 48px;
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -153,7 +205,6 @@
     .value-row {
       display: grid;
       grid-template-columns: 200px 1fr;
-      gap: 0;
       border-bottom: 1px solid var(--green-pale);
       transition: background var(--transition);
     }
@@ -188,16 +239,25 @@
       .value-row { grid-template-columns: 1fr; }
       .value-row-label { border-right: none; border-bottom: 1px solid var(--green-pale); padding: 20px 24px; }
       .value-row-text { padding: 20px 24px; }
+      .inner-hero { min-height: 50vh; }
+    }
+
+    @media (max-width: 640px) {
+      .inner-hero-body { padding: 0 20px 48px; }
     }
   </style>
 </head>
 <body>
 
-<!-- PAGE HEADER -->
-<header class="page-header">
-  <h1>About TJ's</h1>
-  <p>Two guys from Victor, NY — with a big work ethic and even bigger results.</p>
-</header>
+<!-- HERO -->
+<section class="inner-hero">
+  <img class="inner-hero-bg" src="../images/after/after3.JPG" alt="TJ's Property Management landscaping work">
+  <div class="inner-hero-scrim"></div>
+  <div class="inner-hero-body">
+    <h1>About TJ's</h1>
+    <p>Two guys from Victor, NY — with a big work ethic and even bigger results.</p>
+  </div>
+</section>
 
 <!-- OUR STORY -->
 <section class="section">
