@@ -14,74 +14,142 @@
     }
     [data-reveal].revealed { opacity: 1; transform: none; }
 
-    /* ---------- PHOTO HERO (inner pages) ---------- */
-    .inner-hero {
-      min-height: 60vh;
+    /* ---------- PHOTO HERO (matches homepage exactly) ---------- */
+    .hero {
+      min-height: 100vh;
       position: relative;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
       background: var(--green-dark);
-      margin-top: 0;
     }
 
-    /* Make the site-top-bar transparent over the hero */
-    .site-top-bar {
-      background: transparent !important;
-      backdrop-filter: none !important;
-      border-bottom: none !important;
-      box-shadow: none !important;
-    }
-
-    .site-top-bar.scrolled {
-      background: rgba(26,74,26,0.97) !important;
-      backdrop-filter: blur(12px) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    }
-
-    .inner-hero-bg {
+    .hero-bg {
       position: absolute;
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 30%;
       z-index: 0;
     }
 
-    .inner-hero-scrim {
+    .hero-scrim {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(180deg, rgba(10,30,10,0.35) 0%, rgba(10,30,10,0.15) 40%, rgba(10,30,10,0.70) 100%);
+      background: linear-gradient(180deg, rgba(10,30,10,0.55) 0%, rgba(10,30,10,0.30) 35%, rgba(10,30,10,0.45) 70%, rgba(10,30,10,0.80) 100%);
     }
 
-    .inner-hero-body {
+    .hero-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 32px;
+    }
+
+    .hero-top-btn {
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 13px 26px;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-top-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+    }
+
+    .hero-top-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .hero-top-logo img {
+      height: 56px;
+      width: auto;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .hero-top-logo span {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-top: 4px;
+    }
+
+    .hero-menu-btn {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .hero-menu-btn:hover { background: rgba(255,255,255,0.22); }
+
+    .hero-menu-btn span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    .hero-body {
       position: relative;
       z-index: 2;
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 32px 64px;
+      padding: 0 32px 90px;
       text-align: center;
     }
 
-    .inner-hero-body h1 {
+    .hero-title {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
       font-weight: 900;
       color: var(--white);
       line-height: 1.1;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       text-shadow: 0 4px 24px rgba(0,0,0,0.3);
     }
 
-    .inner-hero-body p {
-      font-size: 1.05rem;
+    .hero-sub {
+      font-size: 1.08rem;
       color: rgba(255,255,255,0.82);
       max-width: 520px;
       margin: 0 auto;
       line-height: 1.7;
+    }
+
+    /* Hide the injected site-top-bar on this page — we use hero-top instead */
+    .site-top-bar { display: none !important; }
+
+    @media (max-width: 640px) {
+      .hero { align-items: center; }
+      .hero-body { padding-bottom: 0; }
+      .hero-top { padding: 20px; }
+      .hero-top-btn { display: none; }
+      .hero-top-logo img { height: 44px; }
     }
 
     /* ---------- STORY SECTION ---------- */
@@ -266,12 +334,24 @@
 <body>
 
 <!-- HERO -->
-<section class="inner-hero">
-  <img class="inner-hero-bg" src="../images/after/after3.JPG" alt="TJ's Property Management landscaping work">
-  <div class="inner-hero-scrim"></div>
-  <div class="inner-hero-body">
-    <h1>About TJ's</h1>
-    <p>Two guys from Victor, NY — with a big work ethic and even bigger results.</p>
+<section class="hero">
+  <img class="hero-bg" src="../images/after/after3.JPG" alt="TJ's Property Management landscaping work">
+  <div class="hero-scrim"></div>
+
+  <div class="hero-top">
+    <a href="../pages/contact.html" class="hero-top-btn">Get a Free Estimate</a>
+    <div class="hero-top-logo">
+      <img src="../images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+      <span>Property Management</span>
+    </div>
+    <button class="hero-menu-btn" id="hero-menu-btn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="hero-body">
+    <h1 class="hero-title">About TJ's</h1>
+    <p class="hero-sub">Two guys from Victor, NY — with a big work ethic and even bigger results.</p>
   </div>
 </section>
 
@@ -383,5 +463,18 @@
 <footer class="site-footer"><!-- injected --></footer>
 <script src="../js/components.js"></script>
 <script src="../js/main.js"></script>
+<script>
+  // Wire hero hamburger to the nav panel injected by components.js
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById('hero-menu-btn');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', function() {
+        document.getElementById('nav-overlay')?.classList.add('open');
+        document.getElementById('nav-panel')?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+</script>
 </body>
 </html>
