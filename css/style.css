@@ -52,7 +52,6 @@ ul { list-style: none; }
    ============================================ */
 
 .navbar {
-  display: none;
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
@@ -410,14 +409,14 @@ ul { list-style: none; }
 .nav-panel-dropdown-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition);
+  transition: max-height 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .nav-panel-dropdown.open .nav-panel-dropdown-menu {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .nav-panel-dropdown-menu a {
