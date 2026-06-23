@@ -66,7 +66,9 @@
     // Insert overlay + panel at start of body
     document.body.insertAdjacentHTML('afterbegin', overlayHTML);
     // Insert top bar after overlay/panel
-    document.body.insertAdjacentHTML('afterbegin', topBarHTML);
+   if (inPages) {
+     document.body.insertAdjacentHTML('afterbegin', topBarHTML);
+   }
 
     // Wire up interactions
     const overlay = document.getElementById('nav-overlay');
