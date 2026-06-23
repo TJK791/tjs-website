@@ -407,16 +407,14 @@ ul { list-style: none; }
 }
 
 .nav-panel-dropdown-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 8px;
 }
 
 .nav-panel-dropdown.open .nav-panel-dropdown-menu {
-  max-height: 300px;
+  display: flex;
 }
 
 .nav-panel-dropdown-menu a {
