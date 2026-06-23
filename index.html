@@ -331,16 +331,14 @@
     }
 
     .nav-panel-dropdown-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--transition);
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
+      padding-bottom: 8px;
     }
 
     .nav-panel-dropdown.open .nav-panel-dropdown-menu {
-      max-height: 200px;
+      display: flex;
     }
 
     .nav-panel-dropdown-menu a {
@@ -732,8 +730,9 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="nav-panel-dropdown-menu">
-        <a href="pages/services.html#hardscaping">Hardscaping</a>
-        <a href="pages/services.html#mulching-bedwork">Mulching & Bed Work</a>
+        <a href="pages/hardscaping.html">Hardscaping</a>
+        <a href="pages/mulching.html">Mulching & Bed Work</a>
+        <a href="pages/trimming.html">Trimming & Edging</a>
       </div>
     </div>
     <a href="pages/our-work.html">Our Work</a>
@@ -769,7 +768,7 @@
     <div class="hero-eyebrow">Founded in Victor, NY &bull; Upstate New York</div>
     <h1 class="hero-title">Landscaping Done <em>Right</em> the First Time</h1>
     <div class="hero-actions">
-      <a href="pages/services.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.6);color:var(--white);">See Our Services</a>
+      <a href="pages/hardscaping.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.6);color:var(--white);">See Our Services</a>
     </div>
     <a href="tel:3153320905" class="hero-address">315-332-0905 &bull; 585-353-6926</a>
   </div>
@@ -784,21 +783,21 @@
       <p class="section-sub">We specialize in transforming outdoor spaces — big and small. Whether it's a custom patio or a fresh mulch bed, we handle it with care.</p>
     </div>
     <div class="photo-services-grid" data-reveal>
-      <a href="pages/services.html#hardscaping" class="photo-service-card">
+      <a href="pages/hardscaping.html" class="photo-service-card">
         <img src="images/after/after7.JPG" alt="Hardscaping work">
         <div class="photo-service-card-label">
           <h3>Hardscaping</h3>
           <span>Patios, fire pits & retaining walls</span>
         </div>
       </a>
-      <a href="pages/services.html#mulching-bedwork" class="photo-service-card">
+      <a href="pages/mulching.html" class="photo-service-card">
         <img src="images/after/kennyFront.JPG" alt="Mulching and bed work">
         <div class="photo-service-card-label">
           <h3>Mulching & Bed Work</h3>
           <span>Fresh mulch, clean edges, healthy beds</span>
         </div>
       </a>
-      <a href="pages/services.html" class="photo-service-card">
+      <a href="pages/trimming.html" class="photo-service-card">
         <img src="images/after/after3.JPG" alt="Trimming and edging work">
         <div class="photo-service-card-label">
           <h3>Trimming & Edging</h3>
@@ -807,7 +806,7 @@
       </a>
     </div>
     <div style="text-align:center;margin-top:40px;">
-      <a href="pages/services.html" class="btn btn-primary">View All Services →</a>
+      <a href="pages/hardscaping.html" class="btn btn-primary">View All Services →</a>
     </div>
   </div>
 </section>
