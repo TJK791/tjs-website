@@ -44,11 +44,15 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       z-index: 5;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       padding: 28px 32px;
     }
+
+    .hero-top-btn { justify-self: start; }
+    .hero-top-logo { justify-self: center; }
+    .hero-menu-btn { justify-self: end; }
 
     .hero-top-btn {
       background: var(--white);
@@ -360,7 +364,7 @@
   <div class="container">
     <div class="story-section" data-reveal>
       <div class="story-img">
-        <img src="../images/after/yard_sign.JPG" alt="TJ's Property Management work">
+        <img src="../images/yard_sign.jpeg" alt="TJ's Property Management work">
       </div>
       <div>
         <div class="section-label">Our Story</div>
