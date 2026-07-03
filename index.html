@@ -101,42 +101,9 @@
 </head>
 <body>
 
-<!-- SLIDE-OUT NAV -->
-<div class="nav-overlay" id="nav-overlay"></div>
-<div class="nav-panel" id="nav-panel">
-  <button class="nav-panel-close" id="nav-panel-close" aria-label="Close menu">✕</button>
-  <div class="nav-panel-logo">
-    <img src="images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
-    <span class="brand">TJ'S</span>
-    <span class="sub">Property Management</span>
-  </div>
-  <div class="nav-panel-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="pages/about.html">About</a>
-    <div class="nav-panel-dropdown" id="nav-services-dropdown">
-      <button class="nav-panel-dropdown-toggle" id="nav-services-toggle">
-        Services
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="nav-panel-dropdown-menu">
-        <a href="pages/hardscaping.html">Hardscaping</a>
-        <a href="pages/mulching.html">Mulching & Bed Work</a>
-        <a href="pages/trimming.html">Trimming & Edging</a>
-      </div>
-    </div>
-    <a href="pages/our-work.html">Our Work</a>
-    <a href="pages/reviews.html">Reviews</a>
-    <a href="pages/contact.html">Contact</a>
-  </div>
-  <div class="nav-panel-footer">
-    <p>Looking forward to hearing from you!</p>
-    <a href="tel:3153320905" class="btn btn-white">Call Us</a>
-  </div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="images/after/kennyFrontLeft.JPG" alt="TJ's Property Management landscaping work">
+  <img class="hero-bg" src="images/mulching/after/after1.JPG" alt="TJ's Property Management landscaping work">
   <div class="hero-scrim"></div>
   <div class="hero-top">
     <a href="pages/contact.html" class="hero-top-btn">Get a Free Estimate</a>
@@ -144,7 +111,7 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     </a>
     <div class="hero-top-logo">
-      <img src="images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+      <img src="images/logos/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
       <span>Property Management</span>
     </div>
     <button class="hero-menu-btn" id="hero-menu-btn" aria-label="Open menu">
@@ -172,23 +139,23 @@
   </div>
   <div class="wayside-services-grid" data-reveal style="margin-top:48px;">
     <a href="pages/hardscaping.html" class="wayside-service-card">
-      <img src="images/after/after7.JPG" alt="Hardscaping work">
+      <img src="images/hardscaping/after/after1.JPG" alt="Patios and paver work">
       <div class="wayside-service-label">
-        <h3>Hardscaping</h3>
+        <h3>Patios & Paver Work</h3>
         <span class="wayside-learn-more">Learn More</span>
       </div>
     </a>
     <a href="pages/mulching.html" class="wayside-service-card">
-      <img src="images/after/kennyFront.JPG" alt="Mulching and bed work">
+      <img src="images/mulching/after/after2.JPG" alt="Mulching and bed work">
       <div class="wayside-service-label">
         <h3>Mulching & Bed Work</h3>
         <span class="wayside-learn-more">Learn More</span>
       </div>
     </a>
-    <a href="pages/trimming.html" class="wayside-service-card">
-      <img src="images/after/after6.JPG" alt="Trimming and edging work">
+    <a href="pages/hardscaping.html" class="wayside-service-card">
+      <img src="images/hardscaping/other/other1.JPG" alt="Fire pits and outdoor living">
       <div class="wayside-service-label">
-        <h3>Trimming & Edging</h3>
+        <h3>Fire Pits & Outdoor Living</h3>
         <span class="wayside-learn-more">Learn More</span>
       </div>
     </a>
@@ -248,23 +215,6 @@
 
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
-<script>
-  (function() {
-    const overlay = document.getElementById('nav-overlay');
-    const panel = document.getElementById('nav-panel');
-    const menuBtn = document.getElementById('hero-menu-btn');
-    const closeBtn = document.getElementById('nav-panel-close');
-    const dropdown = document.getElementById('nav-services-dropdown');
-    const dropdownToggle = document.getElementById('nav-services-toggle');
 
-    function openNav() { overlay.classList.add('open'); panel.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeNav() { overlay.classList.remove('open'); panel.classList.remove('open'); document.body.style.overflow = ''; }
-
-    if (menuBtn) menuBtn.addEventListener('click', openNav);
-    if (closeBtn) closeBtn.addEventListener('click', closeNav);
-    if (overlay) overlay.addEventListener('click', closeNav);
-    if (dropdownToggle) dropdownToggle.addEventListener('click', () => { dropdown.classList.toggle('open'); });
-  })();
-</script>
 </body>
 </html>
