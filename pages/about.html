@@ -23,7 +23,6 @@
     }
     [data-reveal].revealed { opacity: 1; transform: none; }
 
-    /* ---------- PHOTO HERO (matches homepage exactly) ---------- */
     .hero {
       min-height: 78vh;
       max-height: 78vh;
@@ -156,7 +155,6 @@
       line-height: 1.7;
     }
 
-    /* Hide the injected site-top-bar on this page — we use hero-top instead */
     .site-top-bar { display: none !important; }
 
     @media (max-width: 640px) {
@@ -167,7 +165,6 @@
       .hero-top-logo img { height: 44px; }
     }
 
-    /* ---------- STORY SECTION ---------- */
     .story-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -187,7 +184,6 @@
       object-fit: cover;
     }
 
-    /* ---------- QUOTE ---------- */
     .about-quote {
       background: var(--green-dark);
       color: var(--white);
@@ -232,7 +228,6 @@
       z-index: 1;
     }
 
-    /* ---------- TEAM ---------- */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -290,7 +285,6 @@
       line-height: 1.7;
     }
 
-    /* ---------- VALUES ---------- */
     .values-list {
       display: flex;
       flex-direction: column;
@@ -349,7 +343,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="../images/hardscaping/after/after3.JPG" alt="TJ's Property Management landscaping work">
+  <img class="hero-bg" src="../images/mulching/other/other1.JPG" alt="TJ's Property Management landscaping work">
   <div class="hero-scrim"></div>
 
   <div class="hero-top">
@@ -374,7 +368,7 @@
   <div class="container">
     <div class="story-section" data-reveal>
       <div class="story-img">
-        <img src="../images/yard_sign.jpeg" alt="TJ's Property Management work">
+        <img src="../images/logos/yard_sign.jpeg" alt="TJ's Property Management work">
       </div>
       <div>
         <div class="section-label">Our Story</div>
@@ -479,7 +473,6 @@
 <script src="../js/components.js"></script>
 <script src="../js/main.js"></script>
 <script>
-  // Wire hero hamburger to the nav panel injected by components.js
   document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.getElementById('hero-menu-btn');
     if (menuBtn) {
