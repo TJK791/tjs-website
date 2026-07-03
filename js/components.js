@@ -12,10 +12,10 @@
       <div class="nav-overlay" id="nav-overlay"></div>
       <div class="nav-panel" id="nav-panel">
         <button class="nav-panel-close" id="nav-panel-close" aria-label="Close menu">✕</button>
-        <div class="nav-panel-logo">
-          <img src="${root}images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
-          <span class="brand">TJ'S</span>
-          <span class="sub">Property Management</span>
+        <div class="nav-panel-logo" style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:36px;">
+          <img src="${root}images/logos/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'" style="height:64px;width:auto;border-radius:50%;border:2px solid rgba(255,255,255,0.3);margin-bottom:10px;">
+          <span class="brand" style="font-family:var(--font-display);font-size:1.2rem;font-weight:900;color:var(--white);display:block;">TJ'S</span>
+          <span class="sub" style="font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Property Management</span>
         </div>
         <div class="nav-panel-links">
           <a href="${root}index.html">Home</a>
@@ -28,7 +28,6 @@
             <div class="nav-panel-dropdown-menu">
               <a href="${root}pages/hardscaping.html">Hardscaping</a>
               <a href="${root}pages/mulching.html">Mulching & Bed Work</a>
-              <a href="${root}pages/trimming.html">Trimming & Edging</a>
             </div>
           </div>
           <a href="${root}pages/our-work.html">Our Work</a>
@@ -49,7 +48,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.9a19.79 19.79 0 01-3.07-8.67A2 2 0 012.3 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           </a>
           <a href="${root}index.html" class="site-top-logo">
-            <img src="${root}images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+            <img src="${root}images/logos/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
             <div class="site-top-logo-text">
               <span class="brand">TJ'S</span>
               <span class="sub">Property Management</span>
@@ -120,7 +119,7 @@
       <div class="footer-inner">
         <div class="footer-grid">
           <div class="footer-brand">
-            <img src="${root}images/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
+            <img src="${root}images/logos/logo.png" alt="TJ's Property Management" onerror="this.style.display='none'">
             <p>Founded in Victor, NY — proudly serving all of Upstate New York with quality landscaping and hardscaping services. Landscaping done right the first time.</p>
           </div>
           <div class="footer-col">
@@ -130,7 +129,6 @@
               <li><a href="${root}pages/about.html">About Us</a></li>
               <li><a href="${root}pages/hardscaping.html">Hardscaping</a></li>
               <li><a href="${root}pages/mulching.html">Mulching & Bed Work</a></li>
-              <li><a href="${root}pages/trimming.html">Trimming & Edging</a></li>
               <li><a href="${root}pages/our-work.html">Our Work</a></li>
               <li><a href="${root}pages/reviews.html">Reviews</a></li>
               <li><a href="${root}pages/contact.html">Free Estimate</a></li>
