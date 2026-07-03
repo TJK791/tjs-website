@@ -422,12 +422,6 @@
   </div>
 </section>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">✕</button>
-  <img class="lightbox-img" id="lightbox-img" src="" alt="Project photo">
-</div>
-
 <section style="padding:80px 24px;text-align:center;background:var(--white);">
   <div class="container">
     <h2 class="section-title" style="color:var(--text-main);">Love What You See?</h2>
@@ -439,27 +433,5 @@
 <footer class="site-footer"><!-- injected --></footer>
 <script src="../js/components.js"></script>
 <script src="../js/main.js"></script>
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  document.querySelectorAll('.before-after-side img').forEach(img => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-  document.getElementById('lightbox-close').addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-</script>
 </body>
 </html>
