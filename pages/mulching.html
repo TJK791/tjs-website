@@ -54,20 +54,25 @@
     .service-includes li::before { content: '✓'; color: var(--green-bright); font-weight: 700; font-size: 0.85rem; }
 
     /* Before/after label */
-    .ba-img-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; margin-bottom: 12px; }
-    .ba-img-wrap:last-child { margin-bottom: 0; }
+    .ba-img-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; }
     .ba-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .ba-label { position: absolute; top: 12px; left: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; color: white; }
     .ba-label.before { background: rgba(0,0,0,0.55); }
     .ba-label.after { background: var(--green-bright); }
 
+    /* Side-by-side before/after grid */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
     @media (max-width: 900px) {
       .service-detail { grid-template-columns: 1fr; gap: 32px; }
-      /* On mobile, content always comes first, images after */
       .service-detail .service-detail-content { order: 1 !important; }
       .service-detail .service-detail-img-col { order: 2 !important; }
-      /* Single image sections */
       .service-detail .service-detail-img { order: 1 !important; }
+      .ba-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .hero { min-height: 50vh; max-height: 50vh; }
@@ -142,13 +147,15 @@
         <a href="contact.html" class="btn btn-primary">Get a Free Estimate →</a>
       </div>
       <div class="service-detail-img-col">
-        <div class="ba-img-wrap">
-          <img src="../images/mulching/before/before1.JPG" alt="Bed before renovation">
-          <span class="ba-label before">Before</span>
-        </div>
-        <div class="ba-img-wrap">
-          <img src="../images/mulching/after/after1.JPG" alt="Bed after renovation">
-          <span class="ba-label after">After</span>
+        <div class="ba-grid">
+          <div class="ba-img-wrap">
+            <img src="../images/mulching/before/before1.JPG" alt="Bed before renovation">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="ba-img-wrap">
+            <img src="../images/mulching/after/after1.JPG" alt="Bed after renovation">
+            <span class="ba-label after">After</span>
+          </div>
         </div>
       </div>
     </div>
@@ -156,13 +163,15 @@
     <!-- ROCK & STONE — before/after left, text right -->
     <div class="service-detail" data-reveal>
       <div class="service-detail-img-col">
-        <div class="ba-img-wrap">
-          <img src="../images/mulching/before/before6.JPG" alt="Rock border before">
-          <span class="ba-label before">Before</span>
-        </div>
-        <div class="ba-img-wrap">
-          <img src="../images/mulching/after/after6.JPG" alt="Rock border after">
-          <span class="ba-label after">After</span>
+        <div class="ba-grid">
+          <div class="ba-img-wrap">
+            <img src="../images/mulching/before/before6.JPG" alt="Rock border before">
+            <span class="ba-label before">Before</span>
+          </div>
+          <div class="ba-img-wrap">
+            <img src="../images/mulching/after/after6.JPG" alt="Rock border after">
+            <span class="ba-label after">After</span>
+          </div>
         </div>
       </div>
       <div class="service-detail-content">
